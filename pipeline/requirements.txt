@@ -1,0 +1,32 @@
+# ── torch (CUDA) ──────────────────────────────────────────────────────────────
+# Check your CUDA version with: nvidia-smi
+# Replace cu118 below with: cu118 / cu121 / cu124
+--extra-index-url https://download.pytorch.org/whl/cu118
+torch>=2.0.0
+torchvision>=0.15.0
+
+# ── AltFreezing deps ───────────────────────────────────────────────────────────
+pillow
+opencv-python
+opencv_transforms
+termcolor
+tensorboardX
+contexttimer
+scikit-learn
+imgaug
+prettytable
+simplejson
+fvcore
+ffmpeg-python
+tabulate
+pandas
+scipy
+lmdb
+PyTurboJPEG
+albumentations
+einops
+filterpy
+
+# pipeline
+tqdm
+numpy
