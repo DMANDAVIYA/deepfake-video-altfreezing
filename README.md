@@ -40,7 +40,7 @@ git clone https://github.com/ZhendongWang6/AltFreezing.git
 
 ### 2. Download model weights
 
-Download `model.pth` from the [AltFreezing release](https://rec.ustc.edu.cn/share/e87360b0-7b2e-11ef-aeef-a9fd0832d537) and place it at:
+Download `model.pth` from **[Google Drive](https://drive.google.com/file/d/1D7oFpiVpDIQa65lzHfSfLOK9-S-iFuWb/view?usp=sharing)** and place it at:
 
 ```
 AltFreezing/checkpoints/model.pth

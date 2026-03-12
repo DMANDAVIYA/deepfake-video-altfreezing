@@ -1,5 +1,6 @@
 v1/
-.pth
-input/
-output/
+*.csv
+*.mp4
+*.pth
 __pycache__/
+
