@@ -18,10 +18,21 @@ _DEFAULT_INPUT  = _PIPELINE_DIR / "data" / "input"
 _DEFAULT_OUTPUT = _PIPELINE_DIR / "data" / "output"
 _DEFAULT_CKPT   = _ALTFREEZING / "checkpoints" / "model.pth"
 
-assert _ALTFREEZING.exists(), (
-    f"AltFreezing not found at {_ALTFREEZING}\n"
-    "Clone it: git clone https://github.com/ZhendongWang6/AltFreezing.git"
-)
+if not _ALTFREEZING.exists():
+    import subprocess, shutil
+    print(f"AltFreezing not found — cloning...")
+    subprocess.run(
+        ["git", "clone", "https://github.com/ZhendongWang6/AltFreezing.git", str(_ALTFREEZING)],
+        check=True
+    )
+    print("Clone complete.")
+    _src_ckpt = _PIPELINE_DIR.parent / "model.pth"
+    _dst_ckpt = _ALTFREEZING / "checkpoints" / "model.pth"
+    if _src_ckpt.exists():
+        shutil.copy2(str(_src_ckpt), str(_dst_ckpt))
+        print(f"Copied model.pth → {_dst_ckpt}")
+    else:
+        print(f"WARNING: model.pth not found at {_src_ckpt} — copy it manually to {_dst_ckpt}")
 
 # must happen BEFORE importing detector.py (face weights download to ./auxillary/)
 os.chdir(str(_ALTFREEZING))
